@@ -1,0 +1,37 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: '01213022'
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: blog_maino_development
+
+test:
+  <<: *default
+  database: blog_maino_test
+
+production:
+  primary: &primary_production
+    <<: *default
+    database: blog_maino_production
+    username: postgres
+    password: '01213022'
+    host: localhost
+    port: 5432
+  cache:
+    <<: *primary_production
+    database: blog_maino_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: blog_maino_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: blog_maino_production_cable
+    migrations_paths: db/cable_migrate
