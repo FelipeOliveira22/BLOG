@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success text-center">
+    <%= notice %>
+  </div>
+<% end %>
 
-<% content_for :title, "Posts" %>
+<% @posts.each do |post| %>
+  <%= render post %>
+<% end %>
 
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div class="pagination mt-4">
+  <%= paginate @posts %>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<hr>
+
+<div class="text-end">
+  <%= link_to "Criar novo post", new_post_path, class: "btn btn-primary" %>
+</div>

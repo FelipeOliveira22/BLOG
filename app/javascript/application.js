@@ -1,5 +1,22 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
+
+// Rails modules
+import Rails from "@rails/ujs";
+Rails.start();
+
+import "@rails/activestorage";
+import "channels";
+
+// Bootstrap modules
 import "bootstrap";
-import "@popperjs/core";
+
+// Import CSS
+import "../assets/stylesheets/application.scss"
+// Initialize tooltips
+document.addEventListener("DOMContentLoaded", () => {
+    const tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    tooltipTriggerList.map((tooltipTriggerEl) => {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
