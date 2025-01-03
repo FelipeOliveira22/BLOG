@@ -11,9 +11,10 @@
 # end
 
 ActiveSupport::Inflector.inflections(:'pt-BR') do |inflect|
-  inflect.plural 'Comentário', 'Comentários'
+  inflect.plural "Comentário", "Comentários"
+  inflect.plural "resultado", "resultados"
 end
 # These inflection rules are supported but not enabled by default:
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
-# end 
+# end

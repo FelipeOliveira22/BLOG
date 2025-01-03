@@ -17,6 +17,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "rails-i18n" # Suporte para internacionalização no Rails
+gem "pry"
+gem "friendly_id"
+gem "pg_search"
+gem "bcrypt", "~> 3.1.7"
+gem "kaminari"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

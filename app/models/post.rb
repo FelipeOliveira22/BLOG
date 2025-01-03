@@ -1,5 +1,12 @@
 class Post < ApplicationRecord
-    validates:title, :author, :body, presence: true
+    include PgSearch
+    extend FriendlyId
+    validates :title, :author, :body, presence: true
+    has_many :comments, dependent: :destroy
 
-    has_many :comments
+    friendly_id :title, use: :slugged
+
+    pg_search_scope :search,
+        against: %i[title author body],
+        associated_against: { comments: %i[body] }
 end

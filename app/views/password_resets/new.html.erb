@@ -1,0 +1,8 @@
+<h1>Recuperar Senha</h1>
+<%= form_with url: password_resets_path, method: :post, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :email, "Digite seu e-mail" %>
+    <%= form.email_field :email, class: "form-control", required: true %>
+  </div>
+  <%= form.submit "Enviar instruções", class: "btn btn-primary mt-3" %>
+<% end %>

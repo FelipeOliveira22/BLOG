@@ -1,0 +1,16 @@
+<% if @posts.total_pages > 1 %>
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-end">
+      <% if @posts.current_page > 1 %>
+        <li class="page-item">
+          <%= link_to raw('&laquo;'), url_for(page: @posts.current_page - 1), class: "page-link" %>
+        </li>
+      <% end %>
+      <% if @posts.current_page < @posts.total_pages %>
+        <li class="page-item">
+          <%= link_to raw('&raquo;'), url_for(page: @posts.current_page + 1), class: "page-link" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+<% end %>
