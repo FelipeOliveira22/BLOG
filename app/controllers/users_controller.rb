@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(user_update_params)
       redirect_to profile_path, notice: "Cadastro atualizado com sucesso!"
     else
       flash.now[:alert] = @user.errors.full_messages.to_sentence
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update_password
     @user = current_user
     if @user.authenticate(params[:current_password])
-      if @user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+      if @user.update(password_params)
         redirect_to profile_path, notice: "Senha alterada com sucesso!"
       else
         flash.now[:alert] = @user.errors.full_messages.to_sentence
@@ -58,6 +58,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def user_update_params
     params.require(:user).permit(:name, :email)
   end
 
