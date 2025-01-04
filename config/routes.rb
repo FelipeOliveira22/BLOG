@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
-  delete "logout", to: "sessions#destroy"
+  delete "logout", to: "sessions#destroy" # Corrigido para sessions#destroy
 
   get "profile", to: "users#profile"
   get "change_password", to: "users#change_password"
@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     get :search, on: :collection
+    post :upload, on: :collection
+    post :delete, on: :member
   end
 
-  resources :comments, only: %i[create]
+  resources :comments, only: [:create]
 end

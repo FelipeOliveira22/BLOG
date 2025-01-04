@@ -5,6 +5,12 @@
       <strong>Por <%= @post.author %></strong><br>
       <%= l @post.created_at, format: :long %>
     </p>
+    <% if @post.tags.any? %>
+      <p class="mt-2">
+        <strong>Tags:</strong>
+        <%= @post.tags.map(&:name).join(", ") %>
+      </p>
+    <% end %>
   </div>
   <div class="px-5">
     <%= @post.body.gsub("\n", "<br>").html_safe %>

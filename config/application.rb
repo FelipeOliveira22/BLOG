@@ -12,6 +12,9 @@ module BlogMaino
     config.i18n.available_locales = [ :'pt-BR', :en ]
     config.time_zone = "Brasilia"
 
+    # Configurar o adaptador de filas para Sidekiq
+    config.active_job.queue_adapter = :sidekiq
+
     # Ignorar subdiretórios específicos na lib
     config.autoload_lib(ignore: %w[assets tasks])
   end
