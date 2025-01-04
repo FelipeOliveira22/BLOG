@@ -13,3 +13,11 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+# Helper para testes de integração
+class ActionDispatch::IntegrationTest
+  def login_as(user)
+    post login_path, params: { email: user.email, password: "96334505" }
+    follow_redirect! # Garante que a resposta redirecione corretamente
+  end
+end

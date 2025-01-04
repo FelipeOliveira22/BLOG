@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to posts_path, notice: "Você saiu do sistema."
+    redirect_to params[:redirect_to] || login_path, notice: "Você saiu com sucesso."
   end
 end

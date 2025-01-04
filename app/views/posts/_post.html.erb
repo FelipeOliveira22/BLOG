@@ -10,10 +10,13 @@
         <%= pluralize(post.comments.count, "Comentário", "Comentários") %>
       </p>
 
-      <%= link_to "Ler Artigo", post, class: "btn btn-primary" %>
-      <%= link_to "Editar", edit_post_path(post), class: "btn btn-secondary" %>
-      <%= link_to "Apagar", post, method: :delete, class: "btn btn-danger",
-      data: { confirm: "Você tem certeza que deseja excluir?" } %>
+      <div class="d-flex gap-2">
+        <%= link_to "Ler Artigo", post, class: "btn btn-primary" %>
+        <%= link_to "Editar", edit_post_path(post), class: "btn btn-secondary" %>
+        <%= form_with url: delete_post_path(post), method: :post, local: true do |f| %>
+          <%= f.submit "Apagar", class: "btn btn-danger", data: { confirm: "Você tem certeza que deseja excluir?" } %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
