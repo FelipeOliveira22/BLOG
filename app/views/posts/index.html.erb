@@ -4,16 +4,20 @@
   </div>
 <% end %>
 
+<% if alert.present? %>
+  <div class="alert alert-danger text-center">
+    <%= alert %>
+  </div>
+<% end %>
+
+<div class="text-end mb-4">
+  <%= link_to "Criar novo post", new_post_path, class: "btn btn-primary" %>
+</div>
+
 <% @posts.each do |post| %>
   <%= render post %>
 <% end %>
 
 <div class="pagination mt-4">
   <%= paginate @posts %>
-</div>
-
-<hr>
-
-<div class="text-end">
-  <%= link_to "Criar novo post", new_post_path, class: "btn btn-primary" %>
 </div>

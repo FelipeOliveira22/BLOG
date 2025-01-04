@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     get :search, on: :collection
+    post :upload, on: :collection
   end
 
   resources :comments, only: %i[create]
