@@ -1,0 +1,22 @@
+databases:
+  - name: blog-maino-db
+    databaseName: blog_maino_production
+    user: postgres
+    plan: free
+
+services:
+  - type: web
+    name: blog-maino-service
+    runtime: ruby
+    plan: free
+    buildCommand: "bundle install && bin/rails assets:precompile"
+    startCommand: "bundle exec rails server -b 0.0.0.0"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: blog-maino-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
