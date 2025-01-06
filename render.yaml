@@ -1,7 +1,7 @@
 databases:
   - name: blog-maino-db
     databaseName: blog_maino_production
-    user: blog_maino_user
+    user: postgres
     plan: free
 services:
   - type: web
