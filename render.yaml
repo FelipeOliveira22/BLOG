@@ -3,7 +3,6 @@ databases:
     databaseName: blog_maino_production
     user: blog_maino_user
     plan: free
-
 services:
   - type: web
     name: blog-maino-service
