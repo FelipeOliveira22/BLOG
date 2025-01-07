@@ -1,24 +1,6 @@
-# README
+# Desafio Blog (Maito) - Felipe Oliveira
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hospedagem Render: https://blog-maino-service.onrender.com/
 
-Things you may want to cover:
+Serviço Hospedado (Vídeo): https://drive.google.com/file/d/1PFC-iy8OJafmm45usuk28J8y8LJEdDNI/view?usp=sharing
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
